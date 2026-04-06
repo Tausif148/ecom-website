@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { decreament, increament } from "../../redux/counterSlice";
 
 const Header = () => {
+    const count = useSelector((store) => store.countStore.count
+        // console.log(store.countStore.count);
+    );
+
+    const dispatch = useDispatch();
+
     return (
         <header className="sticky top-0 z-50 bg-white shadow-sm">
             <nav className="mx-auto max-w-screen-xl px-4 py-3 flex items-center justify-between">
@@ -34,15 +42,28 @@ const Header = () => {
                             <Link to="/products">Shop</Link>
                         </li>
                         <li className="hover:text-blue-600 cursor-pointer">
-                            <Link to="/categories">Categories</Link>
+                            <Link to="/categories">Categories</Link>0
                         </li>
                         <li className="hover:text-blue-600 cursor-pointer">    <Link to="/contact">Contact</Link></li>
                     </ul>
 
-                    {/* Cart */}
+                    {/* Cart practice */}
+                    {/* <Link to="/cart" className="relative cursor-pointer">
+                        Cart - {count}
+                    </Link> */}
+
+                    {/* <button onClick={() => dispatch(increament(1))} className="rounded-lg border border-blue-600 px-4 py-1.5 text-blue-600 hover:bg-blue-600 hover:text-white transition">
+                        Increament +
+                    </button>
+                    <button onClick={() => dispatch(decreament(1))} className="rounded-lg border border-blue-600 px-4 py-1.5 text-blue-600 hover:bg-blue-600 hover:text-white transition">
+                        Decreamnent -
+                    </button> */}
+
+                    {/* Cart  */}
                     <Link to="/cart" className="relative cursor-pointer">
-                        Cart - 2
+                        Cart - 0
                     </Link>
+
 
                     {/* Login */}
                     <button className="rounded-lg border border-blue-600 px-4 py-1.5 text-blue-600 hover:bg-blue-600 hover:text-white transition">

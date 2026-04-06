@@ -7,19 +7,21 @@ import ProductList from "./component/pages/ProductList";
 import Contact from "./component/pages/Contact";
 import Categories from "./component/pages/Categories";
 import Cart from "./component/pages/Cart";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 createRoot(document.getElementById("root")).render(
-
-  <HashRouter>
-    <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<ProductList />} />
-        <Route path="/Categories" element={<Categories />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/cart" element={<Cart />} />
-      </Route>
-    </Routes>
-  </HashRouter>
-
+  <Provider store={store}>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<ProductList />} />
+          <Route path="/Categories" element={<Categories />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<Cart />} />
+        </Route>
+      </Routes>
+    </HashRouter>
+  </Provider>
 );

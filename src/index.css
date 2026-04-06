@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
-.max-w-screen-xl{
+.max-w-screen-xl {
     max-width: 1480px;
+}
+
+button {
+    cursor: pointer;
 }
