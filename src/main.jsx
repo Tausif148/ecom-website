@@ -1,12 +1,25 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import MainLayout from './component/Layout/MainLayout'
-// import Home from './component/Home'
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainLayout from "./component/layout/MainLayout";
+import Home from "./component/pages/Home";
+import ProductList from "./component/pages/ProductList";
+import Contact from "./component/pages/Contact";
+import Categories from "./component/pages/Categories";
+import Cart from "./component/pages/Cart";
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <MainLayout />
-    {/* <Home /> */}
-  </StrictMode>,
-)
+createRoot(document.getElementById("root")).render(
+
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<ProductList />} />
+        <Route path="/Categories" element={<Categories />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/cart" element={<Cart />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
+
+);

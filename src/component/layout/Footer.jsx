@@ -168,11 +168,11 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className="mt-6 w-full md:mt-8 lg:mt-0 lg:max-w-lg">
-                            <div className="space-y-5 rounded-lg -50 p-6 dark:-700">
+                            <div className="space-y-5 rounded-lg bg-gray-100 p-6 dark:bg-gray-700">
                                 <a
                                     href="#"
                                     title=""
-                                    className="text-base font-medium text-primary-700 underline hover:no-underline dark:text-primary-500"
+                                    className="text-base font-medium text-white"
                                 >
                                     {" "}
                                     Sign In or Create Account{" "}
@@ -359,48 +359,32 @@ const Footer = () => {
                 </div>
                 <div className="py-6 md:py-8">
                     <div className="gap-4 space-y-5 xl:flex xl:items-center xl:justify-between xl:space-y-0">
-                        <a href="#" title="" className="block">
-                            <img
-                                className="block h-8 w-auto dark:hidden"
-                                src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full.svg"
-                                alt=""
-                            />
-                            <img
-                                className="hidden h-8 w-auto dark:block"
-                                src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full-dark.svg"
-                                alt=""
-                            />
-                        </a>
-                        <ul className="flex flex-wrap items-center gap-4 text-sm text-gray-900 dark:text-white xl:justify-center">
+                        <ul className="flex flex-wrap items-center gap-4 text-sm text-gray-500 xl:justify-center">
                             <li>
-                                <a href="#" title="" className="font-medium hover:underline">
-                                    {" "}
-                                    Flowbite Express{" "}
+                                <a href="#" className="font-medium hover:text-white hover:underline">
+                                    Privacy Policy
                                 </a>
                             </li>
                             <li>
-                                <a href="#" title="" className="font-medium hover:underline">
-                                    {" "}
-                                    Legal Notice{" "}
+                                <a href="#" className="font-medium hover:text-white hover:underline">
+                                    Terms & Conditions
                                 </a>
                             </li>
                             <li>
-                                <a href="#" title="" className="font-medium hover:underline">
-                                    {" "}
-                                    Product Listing Policy{" "}
+                                <a href="#" className="font-medium hover:text-white hover:underline">
+                                    Refund Policy
                                 </a>
                             </li>
                             <li>
-                                <a href="#" title="" className="font-medium hover:underline">
-                                    {" "}
-                                    Terms of Use{" "}
+                                <a href="#" className="font-medium hover:text-white hover:underline">
+                                    Shipping Policy
                                 </a>
                             </li>
                         </ul>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
-                            © 2024{" "}
-                            <a href="#" className="hover:underline">
-                                Flowbite
+                            © 2026{" "}
+                            <a href="#" className="text-blue-600 hover:underline">
+                                MyShop
                             </a>
                             , Inc. All rights reserved.
                         </p>
