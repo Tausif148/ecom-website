@@ -1,6 +1,17 @@
-import ProductCard from "../ProductCard";
+import { useDispatch, useSelector } from "react-redux";
+import { ProductCard } from "../ProductCard";
+import { useEffect } from "react";
+import { fetchProduct } from "../../redux/productCardSlice";
 
 const Home = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchProduct());
+    }, []);
+
+
+    const productsSelector = useSelector((state) => state.productCardStore.products);
     return (
         <>
             <section className="bg-white dark:bg-gray-900">
@@ -48,12 +59,13 @@ const Home = () => {
             </section>
             <section className="bg-white py-10 antialiased md:py-12">
                 <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
-                    {/* Product Grid */}
+                    <h2 className="text-center py-5 font-black text-3xl">Our products</h2>
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
+                        {
+                            productsSelector.map((product) => (
+                                <ProductCard key={product.id} data={product} />
+                            ))
+                        }
                     </div>
                 </div>
             </section>
@@ -197,7 +209,6 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-
         </>
     );
 };

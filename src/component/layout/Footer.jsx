@@ -6,7 +6,7 @@ const Footer = () => {
                     <div className="items-start gap-6 md:gap-8 lg:flex 2xl:gap-24">
                         <div className="grid min-w-0 flex-1 grid-cols-2 gap-6 md:gap-8 xl:grid-cols-3">
                             <div>
-                                <h6 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+                                <h6 className="mb-4 text-sm font-semibold uppercase text-black-900 dark:text-white">
                                     Company
                                 </h6>
                                 <ul className="space-y-3">
@@ -14,7 +14,7 @@ const Footer = () => {
                                         <a
                                             href="#"
                                             title=""
-                                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                            className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             {" "}
                                             About{" "}
@@ -24,7 +24,7 @@ const Footer = () => {
                                         <a
                                             href="#"
                                             title=""
-                                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                            className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             {" "}
                                             Premium{" "}
@@ -34,7 +34,7 @@ const Footer = () => {
                                         <a
                                             href="#"
                                             title=""
-                                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                            className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             {" "}
                                             Blog{" "}
@@ -44,7 +44,7 @@ const Footer = () => {
                                         <a
                                             href="#"
                                             title=""
-                                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                            className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             {" "}
                                             Affiliate Program{" "}
@@ -54,7 +54,7 @@ const Footer = () => {
                                         <a
                                             href="#"
                                             title=""
-                                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                            className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             {" "}
                                             Get Coupon{" "}
@@ -63,7 +63,7 @@ const Footer = () => {
                                 </ul>
                             </div>
                             <div>
-                                <h6 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+                                <h6 className="mb-4 text-sm font-semibold uppercase text-black-900 dark:text-white">
                                     Order &amp; Purchases
                                 </h6>
                                 <ul className="space-y-3">
@@ -71,7 +71,7 @@ const Footer = () => {
                                         <a
                                             href="#"
                                             title=""
-                                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                            className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             Order Status
                                         </a>
@@ -80,7 +80,7 @@ const Footer = () => {
                                         <a
                                             href="#"
                                             title=""
-                                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                            className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             Track Your Order
                                         </a>
@@ -89,7 +89,7 @@ const Footer = () => {
                                         <a
                                             href="#"
                                             title=""
-                                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                            className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             Purchase History
                                         </a>
@@ -98,7 +98,7 @@ const Footer = () => {
                                         <a
                                             href="#"
                                             title=""
-                                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                            className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             Returns &amp; Refunds
                                         </a>
@@ -107,7 +107,7 @@ const Footer = () => {
                                         <a
                                             href="#"
                                             title=""
-                                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                            className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             Payment Methods
                                         </a>
@@ -115,7 +115,7 @@ const Footer = () => {
                                 </ul>
                             </div>
                             <div>
-                                <h6 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+                                <h6 className="mb-4 text-sm font-semibold uppercase text-black-900 dark:text-white">
                                     Support &amp; Services
                                 </h6>
                                 <ul className="space-y-3">
@@ -123,7 +123,7 @@ const Footer = () => {
                                         <a
                                             href="#"
                                             title=""
-                                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                            className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             Contact Support
                                         </a>
@@ -132,7 +132,7 @@ const Footer = () => {
                                         <a
                                             href="#"
                                             title=""
-                                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                            className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             FAQs
                                         </a>
@@ -141,7 +141,7 @@ const Footer = () => {
                                         <a
                                             href="#"
                                             title=""
-                                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                            className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             Service Centers
                                         </a>
@@ -150,7 +150,7 @@ const Footer = () => {
                                         <a
                                             href="#"
                                             title=""
-                                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                            className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             Warranty Information
                                         </a>
@@ -159,7 +159,7 @@ const Footer = () => {
                                         <a
                                             href="#"
                                             title=""
-                                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                            className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                         >
                                             Product Manuals
                                         </a>
@@ -183,13 +183,13 @@ const Footer = () => {
                                         <div className="relative mr-3 w-full sm:w-96 lg:w-full">
                                             <label
                                                 htmlFor="email"
-                                                className="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300"
+                                                className="mb-2 block text-sm font-medium text-black-900 dark:text-gray-300"
                                             >
                                                 {" "}
                                                 Get the latest deals and more.{" "}
                                             </label>
                                             <input
-                                                className="block w-full rounded-lg border border-gray-300 bg-white p-3 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-500 dark:-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500 sm:w-96 lg:w-full"
+                                                className="block w-full rounded-lg border border-gray-300 bg-white p-3 text-sm text-black-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-500 dark:-600 dark:text-white dark:placeholder-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500 sm:w-96 lg:w-full"
                                                 placeholder="Enter your email address"
                                                 type="email"
                                                 id="email"
@@ -199,7 +199,7 @@ const Footer = () => {
                                         <div>
                                             <button
                                                 type="submit"
-                                                className="w-full cursor-pointer rounded-lg bg-primary-700 px-5 py-3 text-center text-sm font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                                                className="w-full cursor-pointer rounded-lg bg-blue-700 px-5 py-3 text-center text-sm font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                                             >
                                                 Subscribe
                                             </button>
@@ -208,7 +208,7 @@ const Footer = () => {
                                 </form>
                                 <hr className="border-gray-200 dark:border-gray-600" />
                                 <div>
-                                    <p className="mb-3 text-sm font-medium text-gray-900 dark:text-white">
+                                    <p className="mb-3 text-sm font-medium text-black-900 dark:text-white">
                                         Trade on the go with{" "}
                                         <a href="#" title="" className="underline hover:no-underline">
                                             Flowbite App
@@ -273,7 +273,7 @@ const Footer = () => {
                                 <div className="flex space-x-4">
                                     <a
                                         href="#"
-                                        className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                        className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                     >
                                         <svg
                                             className="h-5 w-5"
@@ -290,7 +290,7 @@ const Footer = () => {
                                     </a>
                                     <a
                                         href="#"
-                                        className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                        className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                     >
                                         <svg
                                             className="h-5 w-5"
@@ -307,7 +307,7 @@ const Footer = () => {
                                     </a>
                                     <a
                                         href="#"
-                                        className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                        className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                     >
                                         <svg
                                             className="h-5 w-5"
@@ -320,7 +320,7 @@ const Footer = () => {
                                     </a>
                                     <a
                                         href="#"
-                                        className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                        className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                     >
                                         <svg
                                             className="h-5 w-5"
@@ -337,7 +337,7 @@ const Footer = () => {
                                     </a>
                                     <a
                                         href="#"
-                                        className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                        className="text-white-500 hover:text-black-900 dark:text-gray-400 dark:hover:text-white"
                                     >
                                         <svg
                                             className="h-5 w-5"
@@ -359,7 +359,7 @@ const Footer = () => {
                 </div>
                 <div className="py-6 md:py-8">
                     <div className="gap-4 space-y-5 xl:flex xl:items-center xl:justify-between xl:space-y-0">
-                        <ul className="flex flex-wrap items-center gap-4 text-sm text-gray-500 xl:justify-center">
+                        <ul className="flex flex-wrap items-center gap-4 text-sm text-white-500 xl:justify-center">
                             <li>
                                 <a href="#" className="font-medium hover:text-white hover:underline">
                                     Privacy Policy
@@ -381,7 +381,7 @@ const Footer = () => {
                                 </a>
                             </li>
                         </ul>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                        <p className="text-sm text-white-500 dark:text-gray-400">
                             © 2026{" "}
                             <a href="#" className="text-blue-600 hover:underline">
                                 MyShop

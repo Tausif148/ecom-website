@@ -3,11 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { decreament, increament } from "../../redux/counterSlice";
 
 const Header = () => {
+    // counter functionality 
     const count = useSelector((store) => store.countStore.count
         // console.log(store.countStore.count);
     );
-
     const dispatch = useDispatch();
+
+    // cart count functionality
+    const cartItems = useSelector((state) => state.cartStore.items);
+    // console.log(cartItems.length);
+
 
     return (
         <header className="sticky top-0 z-50 bg-white shadow-sm">
@@ -42,9 +47,10 @@ const Header = () => {
                             <Link to="/products">Shop</Link>
                         </li>
                         <li className="hover:text-blue-600 cursor-pointer">
-                            <Link to="/categories">Categories</Link>0
+                            <Link to="/categories">Categories</Link>
                         </li>
-                        <li className="hover:text-blue-600 cursor-pointer">    <Link to="/contact">Contact</Link></li>
+                        <li className="hover:text-blue-600 cursor-pointer">
+                            <Link to="/contact">Contact</Link></li>
                     </ul>
 
                     {/* Cart practice */}
@@ -61,7 +67,7 @@ const Header = () => {
 
                     {/* Cart  */}
                     <Link to="/cart" className="relative cursor-pointer">
-                        Cart - 0
+                        Cart - {cartItems.length}
                     </Link>
 
 
