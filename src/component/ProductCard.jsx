@@ -7,11 +7,11 @@ const ProductCard = ({ data }) => {
 
     const dispatch = useDispatch();
 
+    
     const cartItems = useSelector((state) => state.cartStore.items);
-
     const isInCart = cartItems.find((item) => item.id === id);
 
-    // ✅ Add to Cart
+    //  Add to Cart
     const addToCartHandler = () => {
         const cartObj = {
             id,
@@ -21,12 +21,12 @@ const ProductCard = ({ data }) => {
             qty: 1
         };
 
-        dispatch(addToCart(cartObj));   // ✅ FIXED
+        dispatch(addToCart(cartObj));   //  FIXED
         toast.success("Product added to cart!");
     };
 
-    // ✅ Remove from Cart
-    const removeFromCartHandler = () => {
+    //  Remove from Cart
+    const removeCartHandler = () => {
         dispatch(removedToCart(id));
         toast.error("Product removed from cart!");
     };
@@ -79,7 +79,7 @@ const ProductCard = ({ data }) => {
                     {
                         isInCart ? (
                             <button
-                                onClick={removeFromCartHandler}
+                                onClick={removeCartHandler}
                                 className="rounded-lg border border-red-600 px-4 py-1.5 text-red-600 hover:bg-red-600 hover:text-white transition"
                             >
                                 Remove from cart

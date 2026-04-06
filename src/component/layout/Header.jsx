@@ -1,18 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { decreament, increament } from "../../redux/counterSlice";
+// import { decreament, increament } from "../../redux/counterSlice";
 
 const Header = () => {
     // counter functionality 
-    const count = useSelector((store) => store.countStore.count
-        // console.log(store.countStore.count);
-    );
+    // const count = useSelector((store) => store.countStore.count
+    // console.log(store.countStore.count);
+    // );
     const dispatch = useDispatch();
 
     // cart count functionality
     const cartItems = useSelector((state) => state.cartStore.items);
     // console.log(cartItems.length);
-
 
     return (
         <header className="sticky top-0 z-50 bg-white shadow-sm">
@@ -20,7 +19,7 @@ const Header = () => {
 
                 {/* Logo */}
                 <div className="text-2xl font-bold text-blue-600 cursor-pointer">
-                    <Link to="/">MyShop</Link>
+                    <NavLink to="/">MyShop</NavLink>
                 </div>
 
                 {/* Search Bar */}
@@ -40,23 +39,55 @@ const Header = () => {
 
                     {/* Menu */}
                     <ul className="hidden lg:flex items-center gap-6 text-gray-700 font-medium">
-                        <li className="hover:text-blue-600 cursor-pointer">
-                            <Link to="/">Home</Link>
+                        <li>
+                            <NavLink
+                                to="/"
+                                className={({ isActive }) =>
+                                    isActive ? "text-blue-600" : "hover:text-blue-600"
+                                }
+                            >
+                                Home
+                            </NavLink>
                         </li>
-                        <li className="hover:text-blue-600 cursor-pointer">
-                            <Link to="/products">Shop</Link>
+
+                        <li>
+                            <NavLink
+                                to="/products"
+                                className={({ isActive }) =>
+                                    isActive ? "text-blue-600" : "hover:text-blue-600"
+                                }
+                            >
+                                Shop
+                            </NavLink>
                         </li>
-                        <li className="hover:text-blue-600 cursor-pointer">
-                            <Link to="/categories">Categories</Link>
+
+                        <li>
+                            <NavLink
+                                to="/categories"
+                                className={({ isActive }) =>
+                                    isActive ? "text-blue-600" : "hover:text-blue-600"
+                                }
+                            >
+                                Categories
+                            </NavLink>
                         </li>
-                        <li className="hover:text-blue-600 cursor-pointer">
-                            <Link to="/contact">Contact</Link></li>
+
+                        <li>
+                            <NavLink
+                                to="/contact"
+                                className={({ isActive }) =>
+                                    isActive ? "text-blue-600" : "hover:text-blue-600"
+                                }
+                            >
+                                Contact
+                            </NavLink>
+                        </li>
                     </ul>
 
                     {/* Cart practice */}
-                    {/* <Link to="/cart" className="relative cursor-pointer">
+                    {/* <NavLink to="/cart" className="relative cursor-pointer">
                         Cart - {count}
-                    </Link> */}
+                    </NavLink> */}
 
                     {/* <button onClick={() => dispatch(increament(1))} className="rounded-lg border border-blue-600 px-4 py-1.5 text-blue-600 hover:bg-blue-600 hover:text-white transition">
                         Increament +
@@ -66,9 +97,11 @@ const Header = () => {
                     </button> */}
 
                     {/* Cart  */}
-                    <Link to="/cart" className="relative cursor-pointer">
+                    <NavLink to="/cart" className={({ isActive }) =>
+                        isActive ? "text-blue-600" : "hover:text-blue-600"
+                    } >
                         Cart - {cartItems.length}
-                    </Link>
+                    </NavLink>
 
 
                     {/* Login */}

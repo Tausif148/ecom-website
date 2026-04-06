@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
         <footer className="bg-black antialiased dark:-800">
-            <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
+            <div className="mx-auto max-w-screen-xl px-4">
                 <div className="border-b border-gray-100 py-6 dark:border-gray-700 md:py-8 lg:py-16">
                     <div className="items-start gap-6 md:gap-8 lg:flex 2xl:gap-24">
                         <div className="grid min-w-0 flex-1 grid-cols-2 gap-6 md:gap-8 xl:grid-cols-3">

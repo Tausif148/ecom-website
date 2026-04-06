@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/ecom-website/',   // ✅ correct place
+  base: '/ecom-website/',   //  correct place
   plugins: [
     react(),
     tailwindcss()
