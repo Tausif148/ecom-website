@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeQty, removedToCart } from "../../redux/cartSlice";
 
 const Cart = () => {
-    const cartItems = useSelector((state) => state.cartStore.items);
+    let cartItems = useSelector((state) => state.cartStore.items);
 
     const dispatch = useDispatch();
 
@@ -23,25 +23,27 @@ const Cart = () => {
         dispatch(changeQty({ id, finalQty }));
     };
 
+    let totalPrice = cartItems.reduce((total, item) => total + item.price * item.qty, 0);
+
 
     return (<section className="bg-white py-8 antialiased  md:py-16">
         <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
+            <h2 className="text-5xl font-semibold text-gray-900 dark:text-black ">
                 Cart
             </h2>
             <div className="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
-                <div className="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
+                <div className="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-5xl">
                     <div className="space-y-6">
-                        <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 md:p-6">
+                        <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-100 dark:bg-gray-100 md:p-6 ">
                             {
                                 cartItems.length
                                     ?
                                     cartItems.map((product) => (
-                                        <div key={product.id} className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0 mb-5">
+                                        <div key={product.id} className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0 mb-5 pb-3 border-b-1 border-gray-300">
 
-                                            <a href="#" className="shrink-0 md:order-1">
+                                            <a className="shrink-0 border-1 border-gray-300">
                                                 <img
-                                                    className="h-20 w-20"
+                                                    className="h-30 w-30"
                                                     src={product.image}
                                                     alt="imac image"
                                                 />
@@ -79,7 +81,7 @@ const Cart = () => {
                                                         type="text"
                                                         id="counter-input"
                                                         data-input-counter=""
-                                                        className="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white"
+                                                        className="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-black"
                                                         value={product.qty}
                                                         readOnly
                                                     />
@@ -91,7 +93,7 @@ const Cart = () => {
                                                         className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
                                                     >
                                                         <svg
-                                                            className="h-2.5 w-2.5 text-gray-900 dark:text-white"
+                                                            className="h-2.5 w-2.5 dark:text-white"
                                                             aria-hidden="true"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             fill="none"
@@ -108,7 +110,7 @@ const Cart = () => {
                                                     </button>
                                                 </div>
                                                 <div className="text-end md:order-4 md:w-32">
-                                                    <p className="text-base font-bold text-gray-900 dark:text-white">
+                                                    <p className="text-base font-bold dark:text-black">
                                                         ${(product.price * product.qty).toFixed(2)}
                                                     </p>
                                                 </div>
@@ -116,7 +118,7 @@ const Cart = () => {
                                             <div className="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
                                                 <a
                                                     href="#"
-                                                    className="text-base font-medium text-gray-900 hover:underline dark:text-white "
+                                                    className="text-base font-medium hover:underline dark:text-black "
                                                 >
                                                     {product.title}
                                                 </a>
@@ -150,7 +152,7 @@ const Cart = () => {
                                             </div>
                                         </div>
                                     ))
-                                    : <p className="text-center text-white font-lg">No product founds !</p>
+                                    : <p className="text-center text-black  font-lg">No product founds !</p>
                             }
 
                         </div>
@@ -168,7 +170,7 @@ const Cart = () => {
                                         Original price
                                     </dt>
                                     <dd className="text-base font-medium text-gray-900 dark:text-white">
-                                        $7,592.00
+                                        ${totalPrice.toFixed(2)}
                                     </dd>
                                 </dl>
                                 {/* <dl className="flex items-center justify-between gap-4">
@@ -178,7 +180,7 @@ const Cart = () => {
                                     <dd className="text-base font-medium text-green-600">
                                         -$299.00
                                     </dd>
-                                </dl> */}
+                                </dl> 
                                 <dl className="flex items-center justify-between gap-4">
                                     <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
                                         Store Pickup
@@ -186,13 +188,14 @@ const Cart = () => {
                                     <dd className="text-base font-medium text-gray-900 dark:text-white">
                                         $99
                                     </dd>
-                                </dl>
+                                </dl>*/}
+
                                 <dl className="flex items-center justify-between gap-4">
                                     <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
                                         Tax
                                     </dt>
                                     <dd className="text-base font-medium text-gray-900 dark:text-white">
-                                        $99
+                                        $100
                                     </dd>
                                 </dl>
                             </div>
@@ -200,9 +203,14 @@ const Cart = () => {
                                 <dt className="text-base font-bold text-gray-900 dark:text-white">
                                     Total
                                 </dt>
-                                <dd className="text-base font-bold text-gray-900 dark:text-white">
-                                    $8,191.00
-                                </dd>
+                                {cartItems.length === 0 ? (
+                                    <dd className="text-base font-bold text-gray-900 dark:text-white">
+                                        $0.00
+                                    </dd>
+                                ) : <dd className="text-base font-bold text-gray-900 dark:text-white">
+                                    ${totalPrice + 100}
+                                </dd>}
+
                             </dl>
                         </div>
                         <a
