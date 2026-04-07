@@ -6,7 +6,6 @@ const ProductCard = ({ data }) => {
     const { id, title, price, discountPercentage, thumbnail, rating } = data;
 
     const dispatch = useDispatch();
-
     
     const cartItems = useSelector((state) => state.cartStore.items);
     const isInCart = cartItems.find((item) => item.id === id);
@@ -21,14 +20,12 @@ const ProductCard = ({ data }) => {
             qty: 1
         };
 
-        dispatch(addToCart(cartObj));   //  FIXED
-        toast.success("Product added to cart!");
+        dispatch(addToCart(cartObj));   
     };
 
     //  Remove from Cart
     const removeCartHandler = () => {
         dispatch(removedToCart(id));
-        toast.error("Product removed from cart!");
     };
 
     return (

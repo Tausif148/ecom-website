@@ -100,7 +100,7 @@ const Header = () => {
                     <NavLink to="/cart" className={({ isActive }) =>
                         isActive ? "text-blue-600" : "hover:text-blue-600"
                     } >
-                        Cart - {cartItems.length}
+                        Cart - ({cartItems.length})
                     </NavLink>
 
 

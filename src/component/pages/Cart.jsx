@@ -1,7 +1,28 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { changeQty, removedToCart } from "../../redux/cartSlice";
 
 const Cart = () => {
     const cartItems = useSelector((state) => state.cartStore.items);
+
+    const dispatch = useDispatch();
+
+    //  Remove from Cart
+    const removeCartHandler = (id) => {
+        dispatch(removedToCart(id));
+    };
+
+    const handleChangeQuntity = (id, qty, type) => {
+        let finalQty = qty;
+
+        if (type === "+") {
+            finalQty = qty + 1;
+        } else if (type === "-" && qty > 1) {
+            finalQty = qty - 1;
+        }
+
+        dispatch(changeQty({ id, finalQty }));
+    };
+
 
     return (<section className="bg-white py-8 antialiased  md:py-16">
         <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
@@ -15,17 +36,125 @@ const Cart = () => {
                             {
                                 cartItems.length
                                     ?
-                                    cartItems.map(product =>
-                                        <CartRow key="product.id" data="product" />
-                                    )
+                                    cartItems.map((product) => (
+                                        <div key={product.id} className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0 mb-5">
+
+                                            <a href="#" className="shrink-0 md:order-1">
+                                                <img
+                                                    className="h-20 w-20"
+                                                    src={product.image}
+                                                    alt="imac image"
+                                                />
+
+                                            </a>
+                                            <label htmlFor="counter-input" className="sr-only">
+                                                Choose quantity:
+                                            </label>
+                                            <div className="flex items-center justify-between md:order-3 md:justify-end">
+                                                <div className="flex items-center">
+                                                    <button
+                                                        type="button"
+                                                        id="decrement-button"
+                                                        onClick={() => handleChangeQuntity(product.id, product.qty, "-")}
+                                                        data-input-counter-decrement="counter-input"
+                                                        className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
+                                                    >
+                                                        <svg
+                                                            className="h-2.5 w-2.5 text-gray-900 dark:text-white"
+                                                            aria-hidden="true"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            fill="none"
+                                                            viewBox="0 0 18 2"
+                                                        >
+                                                            <path
+                                                                stroke="currentColor"
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                strokeWidth={2}
+                                                                d="M1 1h16"
+                                                            />
+                                                        </svg>
+                                                    </button>
+                                                    <input
+                                                        type="text"
+                                                        id="counter-input"
+                                                        data-input-counter=""
+                                                        className="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white"
+                                                        value={product.qty}
+                                                        readOnly
+                                                    />
+                                                    <button
+                                                        type="button"
+                                                        id="increment-button"
+                                                        onClick={() => handleChangeQuntity(product.id, product.qty, "+")}
+                                                        data-input-counter-increment="counter-input"
+                                                        className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
+                                                    >
+                                                        <svg
+                                                            className="h-2.5 w-2.5 text-gray-900 dark:text-white"
+                                                            aria-hidden="true"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            fill="none"
+                                                            viewBox="0 0 18 18"
+                                                        >
+                                                            <path
+                                                                stroke="currentColor"
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                strokeWidth={2}
+                                                                d="M9 1v16M1 9h16"
+                                                            />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                                <div className="text-end md:order-4 md:w-32">
+                                                    <p className="text-base font-bold text-gray-900 dark:text-white">
+                                                        ${(product.price * product.qty).toFixed(2)}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div className="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
+                                                <a
+                                                    href="#"
+                                                    className="text-base font-medium text-gray-900 hover:underline dark:text-white "
+                                                >
+                                                    {product.title}
+                                                </a>
+                                                <div className="flex items-center gap-4 mt-3">
+
+                                                    <button
+                                                        onClick={() => removeCartHandler(product.id)}
+                                                        type="button"
+                                                        className="inline-flex items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500"
+                                                    >
+                                                        <svg
+                                                            className="me-1.5 h-5 w-5"
+                                                            aria-hidden="true"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width={24}
+                                                            height={24}
+                                                            fill="none"
+                                                            viewBox="0 0 24 24"
+                                                        >
+                                                            <path
+                                                                stroke="currentColor"
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                strokeWidth={2}
+                                                                d="M6 18 17.94 6M18 18 6.06 6"
+                                                            />
+                                                        </svg>
+                                                        Remove
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))
                                     : <p className="text-center text-white font-lg">No product founds !</p>
                             }
 
-
                         </div>
-
                     </div>
-
                 </div>
                 <div className="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
                     <div className="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
@@ -42,14 +171,14 @@ const Cart = () => {
                                         $7,592.00
                                     </dd>
                                 </dl>
-                                <dl className="flex items-center justify-between gap-4">
+                                {/* <dl className="flex items-center justify-between gap-4">
                                     <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
                                         Savings
                                     </dt>
                                     <dd className="text-base font-medium text-green-600">
                                         -$299.00
                                     </dd>
-                                </dl>
+                                </dl> */}
                                 <dl className="flex items-center justify-between gap-4">
                                     <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
                                         Store Pickup
@@ -63,7 +192,7 @@ const Cart = () => {
                                         Tax
                                     </dt>
                                     <dd className="text-base font-medium text-gray-900 dark:text-white">
-                                        $799
+                                        $99
                                     </dd>
                                 </dl>
                             </div>
@@ -78,7 +207,7 @@ const Cart = () => {
                         </div>
                         <a
                             href="#"
-                            className="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                            className="border flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                         >
                             Proceed to Checkout
                         </a>
@@ -90,7 +219,7 @@ const Cart = () => {
                             <a
                                 href="#"
                                 title=""
-                                className="inline-flex items-center gap-2 text-sm font-medium text-primary-700 underline hover:no-underline dark:text-primary-500"
+                                className="inline-flex items-center gap-2 text-sm font-medium underline hover:no-underline text-gray-500"
                             >
                                 Continue Shopping
                                 <svg
@@ -124,14 +253,14 @@ const Cart = () => {
                                 <input
                                     type="text"
                                     id="voucher"
-                                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+                                    className="block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                                     placeholder=""
                                     required=""
                                 />
                             </div>
                             <button
                                 type="submit"
-                                className="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                                className="border flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                             >
                                 Apply Code
                             </button>
@@ -143,128 +272,4 @@ const Cart = () => {
     </section>
     )
 }
-
-
 export default Cart;
-
-
-const CartRow = ({ data }) => {
-
-    const { id, title, price, discountPercentage, thumbnail, rating } = data;
-
-    return (
-        <div className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
-            <a href="#" className="shrink-0 md:order-1">
-                <img
-                    className="h-20 w-20"
-                    src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg"
-                    alt="imac image"
-                />
-
-            </a>
-            <label htmlFor="counter-input" className="sr-only">
-                Choose quantity:
-            </label>
-            <div className="flex items-center justify-between md:order-3 md:justify-end">
-                <div className="flex items-center">
-                    <button
-                        type="button"
-                        id="decrement-button"
-                        data-input-counter-decrement="counter-input"
-                        className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
-                    >
-                        <svg
-                            className="h-2.5 w-2.5 text-gray-900 dark:text-white"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 18 2"
-                        >
-                            <path
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M1 1h16"
-                            />
-                        </svg>
-                    </button>
-                    <input
-                        type="text"
-                        id="counter-input"
-                        data-input-counter=""
-                        className="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white"
-                        placeholder=""
-                        defaultValue={2}
-                        required=""
-                    />
-                    <button
-                        type="button"
-                        id="increment-button"
-                        data-input-counter-increment="counter-input"
-                        className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700"
-                    >
-                        <svg
-                            className="h-2.5 w-2.5 text-gray-900 dark:text-white"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 18 18"
-                        >
-                            <path
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M9 1v16M1 9h16"
-                            />
-                        </svg>
-                    </button>
-                </div>
-                <div className="text-end md:order-4 md:w-32">
-                    <p className="text-base font-bold text-gray-900 dark:text-white">
-                        $1,499
-                    </p>
-                </div>
-            </div>
-            <div className="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
-                <a
-                    href="#"
-                    className="text-base font-medium text-gray-900 hover:underline dark:text-white"
-                >
-                    PC system All in One APPLE iMac (2023) mqrq3ro/a, Apple M3,
-                    24" Retina 4.5K, 8GB, SSD 256GB, 10-core GPU, Keyboard layout
-                    INT
-                </a>
-                <div className="flex items-center gap-4">
-
-                    <button
-                        type="button"
-                        className="inline-flex items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500"
-                    >
-                        <svg
-                            className="me-1.5 h-5 w-5"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width={24}
-                            height={24}
-                            fill="none"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M6 18 17.94 6M18 18 6.06 6"
-                            />
-                        </svg>
-                        Remove
-                    </button>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-export { CartRow };
